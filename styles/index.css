@@ -1463,6 +1463,10 @@ body {
 .mobile-menu__socials path {
   fill: white;
 }
+iframe {
+  height: 350px !important;
+}
+
 @media (max-width: 1440px) {
   .wrapper {
     max-width: 1096px;
