@@ -569,7 +569,7 @@
                 <p class="footer__text">
                     ОСТАЛИСЬ ВОПРОСЫ?
                 </p>
-                <a href="+74993820000" class="footer__tel-link">
+                <a href="tel:+74993820000" class="footer__tel-link">
                     +7 (499) 382-00-00
                 </a>
                 <div class="footer__socials">
@@ -608,14 +608,40 @@
                 </div>
             </div>
         </footer>
+        <button class="toggle-footer-btn">
+            <svg class="tel-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="24" fill="none" viewBox="0 0 25 24">
+                <path fill="currentColor" fill-rule="evenodd"
+                    d="M7.689 2.889a1.495 1.495 0 0 0-1.061-.44c-.384 0-.768.147-1.06.44l-.906.905a4.494 4.494 0 0 0-.825 5.23c1.162 2.275 2.873 4.538 5.128 6.792 2.254 2.255 4.517 3.966 6.792 5.128a4.493 4.493 0 0 0 5.23-.825l.905-.905a1.495 1.495 0 0 0 0-2.121l-1.896-1.897a1.336 1.336 0 0 0-1.895 0l-.834.833c-.24.241-.546.39-.918.412-.291.018-.632-.046-1.032-.24-1.12-.58-2.381-1.565-3.777-2.96-1.5-1.501-2.533-2.854-3.108-4.052a1.498 1.498 0 0 1 .292-1.71l.83-.83a1.336 1.336 0 0 0 0-1.895L7.689 2.889Zm-1.545.837c.282-.25.631-.366.897-.083.118.126.415.413.722.71.382.371.78.758.873.868.026.031.058.062.092.095.183.18.413.403-.092.852-.598.532-1.331 1.238-1.354 2.16-.024.922.367 1.883 1.453 3.25s3.273 3.688 4.867 4.766c1.594 1.078 2.656 1.281 3.36 1 .702-.282 1.546-1.125 1.796-1.375s.469-.172.625 0c.064.07.347.357.675.689.473.48 1.04 1.054 1.169 1.201.219.25.062.485-.125.72-.188.233-1.078 1.124-1.453 1.358-.375.235-1.89.86-3.266.235-1.375-.625-3.437-2.11-4.578-3.094-1.14-.984-3.469-3.156-4.703-4.828-1.234-1.672-2.328-3.422-2.531-4.016-.203-.593-.375-1.484 0-2.437.322-.82.679-1.177.882-1.38l.086-.089c.138-.15.46-.464.605-.602Z"
+                    clip-rule="evenodd"></path>
+            </svg>
+         <svg class="close-icon" height="512px"
+                id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px"
+                xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path
+                    d="M437.5,386.6L306.9,256l130.6-130.6c14.1-14.1,14.1-36.8,0-50.9c-14.1-14.1-36.8-14.1-50.9,0L256,205.1L125.4,74.5  c-14.1-14.1-36.8-14.1-50.9,0c-14.1,14.1-14.1,36.8,0,50.9L205.1,256L74.5,386.6c-14.1,14.1-14.1,36.8,0,50.9  c14.1,14.1,36.8,14.1,50.9,0L256,306.9l130.6,130.6c14.1,14.1,36.8,14.1,50.9,0C451.5,423.4,451.5,400.6,437.5,386.6z" />
+            </svg>
+        </button>
     </div>
     <script>
         const anchors = document.querySelectorAll('a[href*="#"]');
         const hamEl = document.querySelector('.ham');
         const mobileMenuEl = document.querySelector('.mobile-menu');
         const mobileMenuLinkEls = mobileMenuEl.querySelectorAll('a');
+        const footerToogleBtnEl = document.querySelector('.toggle-footer-btn');
+        const footerEl = document.querySelector('.footer');
 
 
+        footerToogleBtnEl.addEventListener('click', () => {
+            if (!footerToogleBtnEl.classList.contains('active')) {
+                footerEl.classList.add('active')
+                document.querySelector('html').classList.add('no-scroll');
+                footerToogleBtnEl.classList.add('active')
+            } else {
+                footerEl.classList.remove('active')
+                document.querySelector('html').classList.remove('no-scroll');
+                footerToogleBtnEl.classList.remove('active')
+            }
+        })
 
         hamEl.addEventListener('click', () => {
             const isActive = hamEl.classList.contains('active');
